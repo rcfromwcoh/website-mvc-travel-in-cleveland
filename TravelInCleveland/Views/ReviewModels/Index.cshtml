@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TravelInCleveland.Models.ReviewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReviewTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReviewContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WillReturn)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReviewTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReviewContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WillReturn)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDNumber }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDNumber }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDNumber })
+        </td>
+    </tr>
+}
+
+</table>
